@@ -1,4 +1,5 @@
 <?php
+define( 'WP_CACHE', true ); // Added by Speed Booster Pack
 /**
  * Основные параметры WordPress.
  *

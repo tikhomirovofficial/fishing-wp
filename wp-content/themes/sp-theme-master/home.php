@@ -26,27 +26,20 @@ $sp_obj = new SpClass();?>
                 </h1>
                 <div class="about__content flex-row-betw al-center">
                     <div class="about__left flex-column">
-                        <img class="about__img" src="assets/img/about_img.jpg" alt="">
+                        <img class="about__img" src="<?php the_field('about_img') ?>;" alt="">
                         <iframe class="about__video" width="400" height="234" src="https://www.youtube.com/embed/_mQpbzNl3oQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="about__right flex-column gap-20">
-                        <p class="about__text-item">
-                            Наше хозяйство, расположено всего в 15 километрах от Москвы, на территории СПК «Ромашка», предоставляет услуги платной рыбалки в Подмосковье. Вас ждет радушный прием гостей, вежливое общение.
-                        </p>
-                        <p class="about__text-item">
-                            У нас можно отдохнуть от московской суеты, насладится природой, спокойствием, чистым воздухом и конечно насладится рыбалкой. Мы для Вас создали два пруда, для удобства рыбалки и выбора - большой и малый, берега которых обустроены мостиками и кабинками для ловли рыбы, крытыми беседками и мангалами.
-                        </p>
-                        <p class="about__text-item">
-                            В наши пруды постоянно запускают здоровую и качественную рыбу, поэтому клёв и удовольствие от рыбалки, мы Вам гарантируем.
-                        </p>
-                        <p class="about__text-item">
-                            В наших прудах водится: форель, осетр, щука, сом, карп, линь, сиг.
-                        </p>
-                        <p class="about__text-item">
-                            Рыба, выловленная в нашем водоеме, обладает исключительным вкусом без лишних запахов.
-                        </p>
-                        <b class="about__text-item aboute__text-bold">
-                            Приезжайте на рыбалку к Иванычу, мы рады видеть Вас в нашем хозяйстве!
+                        <?php
+                        $index = 0;
+                        $about_texts = get_field('about_texts');
+
+                        foreach ($about_texts as $key=>$value):?>
+                        <p class="about__text-item"><?=$value?></p>
+                            <?php $index++ ?>
+                        <?php endforeach; ?>
+                        <b class="about__text-item about__text-bold">
+                            <?php the_field('about_bold') ?>
                         </b>
                     </div>
                 </div>
@@ -67,35 +60,58 @@ $sp_obj = new SpClass();?>
                     </div>
                     <div id="tab_1" class="price__tab-content prices__tabs-content-showed">
                         <div class="price__fishing flex-column gap-20">
-                            <div class="price__fishing-item flex-column ">
-                                <h2>Стоимость путевки на рыбалку - 500 руб.</h2>
-                                <ul>
-                                    <li>Пойманная рыба оплачивается по прейскуранту - по окончании рыбалки улов взвешивается.</li>
-                                    <li>В будние дни: жены и дети до 10 лет присутствуют по путевке рыбака.
-                                        В выходные дни: дети до 10 лет присутствуют по путевке рыбака</li>
-                                    <li>Количество снастей на путевку - 2 шт.</li>
-                                </ul>
-                            </div>
-                            <div class="price__fishing-item flex-column ">
-                                <h2>Правила</h2>
-                                <ol>
-                                    <li>Прибыв на водоём, оплачивайте путёвку. </li>
-                                    <li>По окончании рыбалки взвешиваете улов и оплачиваете согласно прейскуранту.</li>
-                                    <li>Пойманную в процессе рыбалки рыбу складывать в отдельный садок.</li>
-                                </ol>
-                            </div>
-                            <div class="price__fishing-item flex-column ">
-                                <h2>На территории ЗАПРЕЩАЕТСЯ:</h2>
-                                <ul>
-                                    <li>Ловля без подсачника.</li>
-                                    <li>Вход с собаками.</li>
-                                    <li>Размещать свои мангалы.</li>
-                                    <li>Выпускать пойманную рыбу - штраф 2000 руб. (в случае такого желания, обратитесь к администратору).</li>
-                                    <li>Готовить рыбу к употреблению до взвешивания и оплаты - штраф 3000 руб.</li>
-                                    <li>Вход в нетрезвом состоянии.</li>
-                                    <li>Занимать беседки с мангальными зонами до оплаты.</li>
-                                </ul>
-                            </div>
+                            <?php
+                            $fishing = get_field('parts_1');
+                            $index = 0;
+                            foreach ($fishing as $key=>$values):?>
+                                <?php
+                                $label = get_field_object('parts_1')['sub_fields'][$index]['label'];
+                                ?>
+
+                                <div class="price__fishing-item flex-column ">
+                                    <h2><?=$label?></h2>
+                                    <ul>
+                                        <?php
+                                        $index_li = 0;
+
+                                        foreach ($values as $key=>$value):?>
+                                            <li><?=$value?></li>
+                                            <?php $index_li++ ?>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                 </div>
+                                <?php $index++ ?>
+                            <?php endforeach; ?>
+
+<!--                            <div class="price__fishing-item flex-column ">-->
+<!--                                <h2>Стоимость путевки на рыбалку - 500 руб.</h2>-->
+<!--                                <ul>-->
+<!--                                    <li>Пойманная рыба оплачивается по прейскуранту - по окончании рыбалки улов взвешивается.</li>-->
+<!--                                    <li>В будние дни: жены и дети до 10 лет присутствуют по путевке рыбака.-->
+<!--                                        В выходные дни: дети до 10 лет присутствуют по путевке рыбака</li>-->
+<!--                                    <li>Количество снастей на путевку - 2 шт.</li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                            <div class="price__fishing-item flex-column ">-->
+<!--                                <h2>Правила</h2>-->
+<!--                                <ol>-->
+<!--                                    <li>Прибыв на водоём, оплачивайте путёвку. </li>-->
+<!--                                    <li>По окончании рыбалки взвешиваете улов и оплачиваете согласно прейскуранту.</li>-->
+<!--                                    <li>Пойманную в процессе рыбалки рыбу складывать в отдельный садок.</li>-->
+<!--                                </ol>-->
+<!--                            </div>-->
+<!--                            <div class="price__fishing-item flex-column ">-->
+<!--                                <h2>На территории ЗАПРЕЩАЕТСЯ:</h2>-->
+<!--                                <ul>-->
+<!--                                    <li>Ловля без подсачника.</li>-->
+<!--                                    <li>Вход с собаками.</li>-->
+<!--                                    <li>Размещать свои мангалы.</li>-->
+<!--                                    <li>Выпускать пойманную рыбу - штраф 2000 руб. (в случае такого желания, обратитесь к администратору).</li>-->
+<!--                                    <li>Готовить рыбу к употреблению до взвешивания и оплаты - штраф 3000 руб.</li>-->
+<!--                                    <li>Вход в нетрезвом состоянии.</li>-->
+<!--                                    <li>Занимать беседки с мангальными зонами до оплаты.</li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <div id="tab_2" class="price__tab-content">
