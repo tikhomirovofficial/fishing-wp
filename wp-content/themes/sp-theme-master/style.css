@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: #1b1b1c;
+    --btnColor: #27C34B;
+    --btnColorHover: #4cc167;
+    --bgWhiteDark: #f3f3f3
+}
+
+header {
+    padding: 1.7rem 0
+}
+section:not(.main__section) {
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+.wrapper {
+    max-width: 119rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.header__logo {
+    width: 9rem;
+    height: 9rem;
+}
+
+.header__link {
+    font-size: 1.6rem;
+}
+
+.header__present {
+    gap: 52px;
+}
+
+.header__nav {
+    gap: 25px;
+}
+
+.header__present p {
+    max-width: 145px;
+    line-height: 1.5;
+    font-size: 1.6rem;
+}
+
+.header__phone {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.header__callback p {
+    font-size: 1.6rem;
+    margin-top: 3px;
+}
+
+.main__section {
+    background-size: cover;
+    height: 96vh;
+}
+
+.main__back_shadow {
+    background: rgba(82, 82, 82, 0.33);
+}
+
+.main__title {
+    font-size: 5.6rem;
+    max-width: 700px;
+}
+
+.main__content {
+    gap: 45px;
+}
+
+.main__link {
+    font-size: 1.6rem;
+    padding: 20px 35px;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-weight: 500;
+    background: var(--btnColor);
+}
+
+.main__link:hover {
+    background: var(--btnColorHover);
+}
+
+.section__title {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.about__content {
+    gap: 50px;
+}
+.about__img {
+    width: 400px;
+    height: 204px;
+}
+.about__text-item {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+.prices {
+    background: var(--bgWhiteDark);
+    padding-bottom: 70px !important;
+}
+.prices__tabs-item {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #48b264;
+    border: 3px solid #61c077;
+    border-radius: 50px;
+    transition: 0.3s;
+    padding: 10px 22px;
+    cursor: pointer;
+}
+.prices__tabs-list {
+    margin-bottom: 60px;
+}
+.prices__tabs-item:not(.prices__tab-active):hover {
+    color: #26a242;
+
+    border: 3px solid #26a242;
+}
+.prices__tab-active {
+    background: #27C34B;
+    border: 3px solid #27C34B;
+    color: white;
+}
+.prices__tabs-content-showed {
+    display: flex !important;
+}
+.price__tab-content {
+    display: none;
+}
+.price__fishing-item h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.2rem;
+}
+.prices__tabs ul, .prices__tabs ol {
+    padding-left: 30px;
+    display: flex;
+    max-width: 750px;
+    flex-direction: column;
+    gap: 8px;
+}
+.prices__tabs ul li {
+    list-style: disc;
+    font-size: 1.6rem;
+}
+.prices__tabs ol li {
+    font-size: 1.6rem;
+    list-style-type: decimal;
+}
+
+.prices__fish-item {
+    max-width: 550px;
+    font-size: 1.6rem;
+}
+.prices__fish {
+    max-height: 170px;
+    margin-bottom: 20px;
+}
+.prices__gazebos {
+    row-gap: 30px;
+}
+.prices__gazebos-item {
+    max-width: 562px;
+}
+.prices__gazebos-item img {
+    width: 562px;
+    height: 338px;
+}
+.prices__gazebos-item h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    padding-bottom: 2rem;
+    border-bottom: 3px solid #1b1b1c
+}
+.prices__gazebos-item b {
+    font-size: 1.6rem;
+    display: block;
+    margin: 5px 0;
+}
+.prices__gazebos-item p, .hotel__description {
+    font-size: 1.6rem;
+}
+.hotel__price {
+    font-size: 2.2rem;
+}
+.hotel__worktime {
+    max-width: 320px;
+    line-height: 1.5;
+}
+.hotel__photos, .gallery__items {
+    gap: 24px;
+    margin: 50px 0;
+}
+.hotel__img, .gallery__img {
+    width: 366px;
+    height: 230px;
+    background-size: cover;
+}
+
+.contacts {
+    background: var(--bgWhiteDark);
+}
+.contacts__title {
+    margin-bottom: unset;
+}
+.contacts__description {
+    font-size: 2.2rem;
+}
+.contacts__titles {
+    margin-bottom: 60px;
+}
+.contacts__list-item h3, .contacts__list-item p, .contacts__link, .contacts__text {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+.contacts__info {
+    width: 550px;
+}
+.contacts__list-item {
+    padding-bottom: 18px;
+    width: 100%;
+    border-bottom: #d0d0d0 solid 1px;
+}
+.contacts__list-item p {
+    max-width: 100%;
+}
+.contacts__link {
+    text-decoration: underline;
+    transition: 0.3s color;
+}
+.contacts__link:hover {
+    color: gray;
+    text-decoration: unset;
+}
+.contacts__social {
+    padding: 30px 0;
+}
+
+.contacts__social-item {
+    transition: 0.3s;
+    gap: 7px;
+    font-size: 1.4rem;
+}
+.contacts__social-item:hover {
+    opacity: 0.7;
+}
+.social__icon {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+.gallery-item {
+    overflow: hidden;
+}
+.gallery__img {
+    transition: 1s transform;
+}
+.gallery__img:hover {
+    transform: scale(1.05);
+}
+.gallery-carousel {
+    background: black;
+    visibility: hidden;
+    z-index: 2;
+}
+.gallery-opened {
+    visibility: visible;
+}
+.gallery-carousel__header {
+    width: 100%;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.6rem;
+    background: black;
+}
+.gallery__slider-item {
+    width: 100vw !important;
+    display: flex;
+    justify-content: center;
+}
+.gallery__slider-prev {
+    left: 0;
+}
+.gallery-carousel__header {
+    z-index: 6;
+}
+.gallery__slider_btn {
+    top: 0;
+    height: 100%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+    background: black;
+}
+.gallery__slider_btn img {
+    width: 80px;
+    cursor: pointer;
+}
+.gallery__slider-next {
+    right: 0;
+}
+.body__gallery {
+    overflow: hidden;
+}
+.gallery__slider-item img {
+    max-width: 1000px;
+    width: 70%;
+}
+@media (max-width: 1170px) {
+    .header__link {
+        font-size: 1.4rem;
+    }
+    .wrapper {
+        max-width: 1050px;
+    }
+    .header__present {
+        gap: 20px;
+    }
+    .header__logo {
+        width: 60px;
+        height: 60px;
+    }
+    .header__phone {
+        font-size: 1.9rem;
+    }
+    .contacts__geo iframe {
+        height: 450px;
+        width: 450px;
+    }
+    .contacts__info {
+        max-width: 450px;
+    }
+    .header__callback p {
+        font-size: 1.35rem;
+    }
+    .section__title {
+        font-size: 3.5rem;
+    }
+    .prices__gazebos-item img {
+        width: 450px;
+        height: 291px;
+    }
+    .prices__gazebos-item {
+        max-width: 490px;
+    }
+
+    .hotel__img, .gallery__img {
+        width: 310px;
+        height: 200px;
+    }
+}
+@media (max-width: 1008px) {
+    .hotel__photos {
+        justify-content: center;
+    }
+    .hotel__price, .hotel__worktime {
+        text-align: center;
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+    }
+}
+@media (max-width: 940px) {
+    .prices__gazebos-item img {
+        width: 400px;
+        height: 261px;
+    }
+    .prices__gazebos-item {
+        max-width: 440px;
+    }
+    .contacts__geo iframe {
+        height: 350px;
+        width: 350px;
+    }
+    .about__text-item {
+        font-size: 1.4rem;
+        line-height: 1.4;
+    }
+    .about__content {
+        gap: 25px;
+    }
+
+}
+@media (max-width: 870px) {
+    .contacts__content {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .contacts__info {
+        width: 90%;
+        max-width: 100%;
+    }
+    .contacts__geo iframe {
+        width: 100%;
+    }
+    .prices__gazebos {
+        justify-content: center;
+    }
+
+}
