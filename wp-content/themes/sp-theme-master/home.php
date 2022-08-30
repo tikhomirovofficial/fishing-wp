@@ -2,9 +2,7 @@
 /*
  * Template Name: home
  */
-function arrayToEveryEight($arr) {
-    $result = [];
-}
+
 get_header(); 
 $sp_obj = new SpClass();?>
 
@@ -135,7 +133,7 @@ $sp_obj = new SpClass();?>
         <div class="wrapper">
             <div class="hotel__block">
                 <h1 class="hotel__title section__title txt-center">
-                    Гостиница для комфортного отдыха
+                    <?php the_field('hotel_title')?>
                 </h1>
                 <div class="hotel__description flex-column gap-30">
                     <p class="hotel__price">
@@ -164,38 +162,41 @@ $sp_obj = new SpClass();?>
         <div class="wrapper">
             <div class="contacts__block">
                 <div class="flex-column contacts__titles gap-10">
-                    <h1 class="contacts__title section__title txt-center">Наши контакты и как доехать</h1>
+                    <h1 class="contacts__title section__title txt-center"><?php the_field('contacts_title');?></h1>
                     <p class="contacts__description txt-center">
-                        Ищите превосходную рыбалку в Московской области, тогда Вам к нам!
+                        <?php the_field('contacts_subtitle');?>
                     </p>
                 </div>
                 <div class="contacts__content js-between d-f">
                     <div class="contacts__info flex-column">
                         <div class="contacts__list flex-column gap-20">
+                            <?php
+                                $contacts = get_field('contacts_fields');
+                            ?>
                             <div class="contacts__list-item flex-column gap-5">
                                 <h3>Режим работы:</h3>
-                                <p>ежедневно с 7:00 до 20:00 (без выходных)</p>
+                                <p><?=$contacts['contacts_worktime'];?></p>
                             </div>
                             <div class="contacts__list-item flex-column gap-5">
-                                <h3>Адрес: </h3>
-                                <p>Московская область, Щелковский район, деревня Большие Жеребцы, СПК «Ромашка».</p>
+                                <h3>Адрес:</h3>
+                                <p><?=$contacts['contacts_address'];?></p>
                             </div>
                             <div class="contacts__list-item flex-column gap-5">
                                 <h3>Телефон</h3>
-                                <a class="contacts__link" href="tel:+79269119407">+7 (926) 911-94-07</a>
+                                <a class="contacts__link" href="tel:+<?php the_field('phone')?>">+<?php echo convertMaskPhone(get_field('phone'));?></a>
                             </div>
                             <div class="contacts__list-item flex-column gap-5">
                                 <h3>Email</h3>
-                                <a class="contacts__link" href="mailto:evg9269119407@yandex.ru">evg9269119407@yandex.ru</a>
+                                <a class="contacts__link" href="mailto:<?=$contacts['contacts_email'];?>"><?=$contacts['contacts_email'];?></a>
                             </div>
                         </div>
                         <div class="contacts__social d-f gap-30">
-                            <a href="https://wa.clck.bar/79269119407" class="contacts__social-item d-f al-center">
-                                <img class="social__icon" src="assets/img/icons/whatsapp.svg" alt="">
+                            <a href="<?php the_field('whatsapp_link'); ?>" class="contacts__social-item d-f al-center">
+                                <img class="social__icon" src="<?=get_template_directory_uri()."/imgs/whatsapp.svg"?>" alt="">
                                 WhatsApp
                             </a>
-                            <a href="viber://contact?number=79269119407/" class="contacts__social-item d-f al-center">
-                                <img class="social__icon" src="assets/img/icons/viber_2.svg" alt="">
+                            <a href="<?php the_field('viber_link'); ?>" class="contacts__social-item d-f al-center">
+                                <img class="social__icon" src="<?=get_template_directory_uri()."/imgs/viber_2.svg"?>" alt="">
                                 Viber
                             </a>
                         </div>
