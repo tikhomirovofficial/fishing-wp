@@ -70,18 +70,21 @@ function sp_scripts() {
 //	wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css');
 	wp_enqueue_style('cms-style', get_stylesheet_uri() );
 //	wp_enqueue_style('mediascreen', get_template_directory_uri().'/css/mediascreen.css');
-	wp_enqueue_style('swiper', get_template_directory_uri().'/css/swiper.css');
+	//wp_enqueue_style('swiper', get_template_directory_uri().'/css/swiper.css');
+    wp_enqueue_style('swiper', "https://unpkg.com/swiper@8/swiper-bundle.min.css");
 	wp_enqueue_style('style', get_template_directory_uri().'style.css');
 	wp_enqueue_style('animate', get_template_directory_uri().'/css/animate.css');
 	wp_enqueue_style('freedom', get_template_directory_uri().'/css/freedom.css');
 //	wp_enqueue_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css');
 
 	wp_enqueue_script('jq', "https://code.jquery.com/jquery-3.6.0.min.js");
-	wp_enqueue_script('swiper', get_template_directory_uri().'/js/swiper.js');
+	//wp_enqueue_script('swiper', get_template_directory_uri().'/js/swiper.js');
+    wp_enqueue_script('swiper', "https://unpkg.com/swiper@8/swiper-bundle.min.js");
 	//wp_enqueue_script('wow', get_template_directory_uri().'/js/wow.js');
     wp_enqueue_script('slider', get_template_directory_uri().'/js/slider.js');
     wp_enqueue_script('fade_scroll', get_template_directory_uri().'/js/fadeScroll.js');
     wp_enqueue_script('tabs', get_template_directory_uri().'/js/tabs.js');
+    wp_enqueue_script('menu', get_template_directory_uri().'/js/.js');
 	wp_enqueue_script('lazyload', get_template_directory_uri().'/js/lazyload.js');
 	wp_enqueue_script('script', get_template_directory_uri().'/js/script.js');
 
