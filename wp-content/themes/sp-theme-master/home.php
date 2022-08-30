@@ -2,7 +2,9 @@
 /*
  * Template Name: home
  */
-
+function arrayToEveryEight($arr) {
+    $result = [];
+}
 get_header(); 
 $sp_obj = new SpClass();?>
 
@@ -50,7 +52,7 @@ $sp_obj = new SpClass();?>
         <div class="wrapper">
             <div class="prices__block">
                 <h1 class="prices__title section__title txt-center">
-                    Цены на рыбалку и услуги
+                    <?php the_field('prices_title')?>
                 </h1>
                 <div class="prices__tabs ">
                     <div class="prices__tabs-list f-center-row gap-20">
@@ -82,80 +84,47 @@ $sp_obj = new SpClass();?>
                                  </div>
                                 <?php $index++ ?>
                             <?php endforeach; ?>
-
-<!--                            <div class="price__fishing-item flex-column ">-->
-<!--                                <h2>Стоимость путевки на рыбалку - 500 руб.</h2>-->
-<!--                                <ul>-->
-<!--                                    <li>Пойманная рыба оплачивается по прейскуранту - по окончании рыбалки улов взвешивается.</li>-->
-<!--                                    <li>В будние дни: жены и дети до 10 лет присутствуют по путевке рыбака.-->
-<!--                                        В выходные дни: дети до 10 лет присутствуют по путевке рыбака</li>-->
-<!--                                    <li>Количество снастей на путевку - 2 шт.</li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                            <div class="price__fishing-item flex-column ">-->
-<!--                                <h2>Правила</h2>-->
-<!--                                <ol>-->
-<!--                                    <li>Прибыв на водоём, оплачивайте путёвку. </li>-->
-<!--                                    <li>По окончании рыбалки взвешиваете улов и оплачиваете согласно прейскуранту.</li>-->
-<!--                                    <li>Пойманную в процессе рыбалки рыбу складывать в отдельный садок.</li>-->
-<!--                                </ol>-->
-<!--                            </div>-->
-<!--                            <div class="price__fishing-item flex-column ">-->
-<!--                                <h2>На территории ЗАПРЕЩАЕТСЯ:</h2>-->
-<!--                                <ul>-->
-<!--                                    <li>Ловля без подсачника.</li>-->
-<!--                                    <li>Вход с собаками.</li>-->
-<!--                                    <li>Размещать свои мангалы.</li>-->
-<!--                                    <li>Выпускать пойманную рыбу - штраф 2000 руб. (в случае такого желания, обратитесь к администратору).</li>-->
-<!--                                    <li>Готовить рыбу к употреблению до взвешивания и оплаты - штраф 3000 руб.</li>-->
-<!--                                    <li>Вход в нетрезвом состоянии.</li>-->
-<!--                                    <li>Занимать беседки с мангальными зонами до оплаты.</li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
                         </div>
                     </div>
                     <div id="tab_2" class="price__tab-content">
-                        <div class="prices__tab-block w-100p flex-wrap gap-20">
-                            <div class="prices__fish w-100p flex-column gap-20 flex-wrap">
-                                <div class="prices__fish-item flex-row-betw al-center">
-                                    <p>Карп</p> <p>350 ₽</p>
+                        <div class="prices__tab-block w-100p flex-wrap">
+                            <?php
+                            $index = 0;
+                            $prices_fish = get_field('fish_prices');
+                            $prices_chunked = array_chunk($prices_fish, 8);
+                            foreach ($prices_chunked as $key=>$value):?>
+                                <?php
+                                $index_item = 0; ?>
+                                 <div class="prices__fish w-100p flex-column gap-20 flex-wrap">
+                                     <?php
+                                     foreach ($value as $k=>$item):?>
+                                         <?php $label = get_field_object('fish_prices')['sub_fields'][$index_item]['label'];
+                                         ?>
+                                         <div class="prices__fish-item flex-row-betw al-center">
+                                             <p><?=$label?></p> <p><?=$item?>₽</p>
+                                         </div>
+                                         <?php $index_item++ ?>
+                                     <?php endforeach; ?>
                                 </div>
-                                <div class="prices__fish-item flex-row-betw al-center">
-                                    <p>Карп</p> <p>350 ₽</p>
-                                </div>
-                                <div class="prices__fish-item flex-row-betw al-center">
-                                    <p>Форель</p> <p>350 ₽</p>
-                                </div>
-                                <div class="prices__fish-item flex-row-betw al-center">
-                                    <p>Карп</p> <p>350 ₽</p>
-                                </div>
-                                <div class="prices__fish-item flex-row-betw al-center">
-                                    <p>Карп</p> <p>350 ₽</p>
-                                </div>
-                                <div class="prices__fish-item flex-row-betw al-center">
-                                    <p>Карп</p> <p>350 ₽</p>
-                                </div>
-                                <div class="prices__fish-item flex-row-betw al-center">
-                                    <p>Карп</p> <p>350 ₽</p>
-                                </div>
-                            </div>
+
+                                <?php $index++ ?>
+                            <?php endforeach; ?>
                         </div>
 
                     </div>
                     <div id="tab_3" class="price__tab-content">
                         <div class="prices__gazebos w-100p flex-wrap flex-row-betw">
-                            <div class="prices__gazebos-item">
-                                <h2>Беседка на 15 человек + мангал</h2>
-                                <img src="assets/img/besedka_1.jpeg" alt="">
-                                <b>Стоимость:</b>
-                                <p>5 000 руб.</p>
-                            </div>
-                            <div class="prices__gazebos-item">
-                                <h2>Беседка на 15 человек + мангал</h2>
-                                <img src="assets/img/besedka_1.jpeg" alt="">
-                                <b>Стоимость:</b>
-                                <p>Будни: 2 000 руб. Выходные: 3 000 руб.</p>
-                            </div>
+                            <?php
+                            $gazebos = get_field('gazebos_prices');
+
+                            foreach ($gazebos as $key=>$value):?>
+                                <div class="prices__gazebos-item">
+                                    <h2><?=$value['gazebo_title']?></h2>
+                                    <img src="<?=$value['gazebo_img']?>" alt="">
+                                    <b>Стоимость:</b>
+                                    <p><?=$value['gazebo_price']?></p>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -170,32 +139,23 @@ $sp_obj = new SpClass();?>
                 </h1>
                 <div class="hotel__description flex-column gap-30">
                     <p class="hotel__price">
-                        <b>Стоимость:</b> 5 000 рублей/сутки
+                        <b>Стоимость:</b> <?php the_field('hotel_price')?>
                     </p>
                     <p class="hotel__worktime">
-                        Двухместное размещение в любой день.
-                        Заезд в 14:00, выезд в 12:00.
+                        <?php the_field('hotel_worktime')?>
                     </p>
                 </div>
                 <div class="hotel__photos flex-wrap">
-                    <div class="hotel__photos-item">
-                        <div style="background-image: url('assets/img/hotel_images/hotel_1.jpg')" class="hotel__img"></div>
-                    </div>
-                    <div class="hotel__photos-item">
-                        <div style="background-image: url('assets/img/hotel_images/hotel_2.jpg')" class="hotel__img"></div>
-                    </div>
-                    <div class="hotel__photos-item">
-                        <div style="background-image: url('assets/img/hotel_images/hotel_3.jpg')" class="hotel__img"></div>
-                    </div>
-                    <div class="hotel__photos-item">
-                        <div style="background-image: url('assets/img/hotel_images/hotel_4.jpg')" class="hotel__img"></div>
-                    </div>
-                    <div class="hotel__photos-item">
-                        <div style="background-image: url('assets/img/hotel_images/hotel_5.jpg')" class="hotel__img"></div>
-                    </div>
-                    <div class="hotel__photos-item">
-                        <div style="background-image: url('assets/img/hotel_images/hotel_6.jpg')" class="hotel__img"></div>
-                    </div>
+                    <?php
+                    $hotel_images = get_field('hotel_images');
+
+                    foreach ($hotel_images as $key=>$value):?>
+                        <div class="prices__gazebos-item">
+                            <div class="hotel__photos-item">
+                                <div style="background-image: url(<?=$value?>)" class="hotel__img"></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
