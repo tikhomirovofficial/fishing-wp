@@ -13,7 +13,13 @@ $sp_obj = new SpClass();?>
                     <h1 class="main__title c-white">
                         <?php the_field('main_title')?>
                     </h1>
-                    <a class="main__link c-white" href="<?php the_field('whatsapp_link')?>">Написать в Whatsapp</a>
+                    <div class="main__links flex-column gap-20">
+                        <a class="main__link c-white" href="<?php the_field('whatsapp_link')?>">Написать в Whatsapp</a>
+                        <a href="tel:<?php the_field('phone');?>" class="main__link main__link-call">
+                            Позвонить
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -201,8 +207,7 @@ $sp_obj = new SpClass();?>
                             </a>
                         </div>
                         <div class="contacts__text">
-                            Мы заинтересованы в покупке живой рыбы, поиске надежных и регулярных поставщиков.
-                            Условия и цены подлежат обсуждению.
+                            <?php the_field('contacts_text'); ?>
                         </div>
                     </div>
                     <div class="contacts__geo">
