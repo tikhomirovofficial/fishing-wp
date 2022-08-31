@@ -2,14 +2,16 @@
 /*
  * The main template file
  */
-wp_redirect('http://wordpress/home.php');
-
-get_header(); 
+wp_redirect( 'https://example.com/some/page' );
 $sp_obj = new SpClass();?>
-
+<script>
+    window.location.href = '<?=get_site_url()?>/home'
+</script>
+	asfsdf
     <section style="background-image: url('./assets/img/main_bg.jpg');" class="main__section">
         <div class="main__back_shadow w-100p h-100p">
             <div class="wrapper h-100p">
+                asdasdas
                 <div class="main__content flex-column h-100p jc-center">
                     <h1 class="main__title c-white">
                         Рыбалка с комфортом без нормы вылова в 15 км от Москвы

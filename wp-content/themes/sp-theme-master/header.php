@@ -27,10 +27,10 @@ function convertMaskPhone($phone) {
 	<header>
 		<div class="wrapper">
 			<div class="header__block flex-row-betw al-center">
-				<div class="header__present d-f al-center">
+				<a href="/" class="header__present d-f al-center">
 					<img class="header__logo" src="<?php the_field('logo'); ?>" alt="">
 					<p class="header__text"><?php the_field('logo_text'); ?></p>
-				</div>
+				</a>
 				<nav>
 					<ul class="header__nav d-f">
                         <?php

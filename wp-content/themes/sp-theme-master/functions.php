@@ -84,7 +84,7 @@ function sp_scripts() {
     wp_enqueue_script('slider', get_template_directory_uri().'/js/slider.js');
     wp_enqueue_script('fade_scroll', get_template_directory_uri().'/js/fadeScroll.js');
     wp_enqueue_script('tabs', get_template_directory_uri().'/js/tabs.js');
-    wp_enqueue_script('menu', get_template_directory_uri().'/js/.js');
+    wp_enqueue_script('menu', get_template_directory_uri().'/js/menu.js');
 	wp_enqueue_script('lazyload', get_template_directory_uri().'/js/lazyload.js');
 	wp_enqueue_script('script', get_template_directory_uri().'/js/script.js');
 
